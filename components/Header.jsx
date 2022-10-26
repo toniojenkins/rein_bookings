@@ -16,6 +16,12 @@ import 'react-date-range/dist/theme/default.css'; // theme css file
 const Header = () => {
     const [input, setInput] = useState('');
     const [openDate, setOpenDate] = useState(false);
+    const [openOptions, setOpenOptions] = useState(false);
+    const [options, setOptions] = useState({
+        adult: 1,
+        children: 0,
+        room: 1,
+    });
     const [date, setDate] = useState([
         {
             startDate: new Date(),
@@ -24,8 +30,14 @@ const Header = () => {
         },
     ]);
 
-    const resetInput = () => {
-        setInput('');
+    const handleOption = (gender, op) => {
+        setOptions((prev) => {
+            return {
+                ...prev,
+                [gender]:
+                    op === '+' ? options[gender] + 1 : options[gender] - 1,
+            };
+        });
     };
 
     return (
@@ -80,7 +92,10 @@ const Header = () => {
                             className="text-[lightgray]"
                             icon={faCalendarDays}
                         />
-                        <span className="text-[lightgray] cursor-pointer">
+                        <span
+                            onClick={() => setOpenDate(!openDate)}
+                            className="text-[lightgray] cursor-pointer"
+                        >
                             {`${format(
                                 date[0].startDate,
                                 'MM/dd/yyyy'
@@ -88,7 +103,7 @@ const Header = () => {
                         </span>
                         {openDate && (
                             <DateRangePicker
-                                className="absolute top-[27px] text-black"
+                                className="absolute top-[43px] left-[80px] text-black"
                                 editableDateInputs={true}
                                 onChange={(item) => setDate([item.selection])}
                                 moveRangeOnFirstSelection={false}
@@ -102,9 +117,85 @@ const Header = () => {
                             className="text-[lightgray]"
                             icon={faPerson}
                         />
-                        <span className="text-[lightgray] cursor-pointer">
-                            2 adults 2 children 1 room
+                        <span
+                            onClick={() => setOpenOptions(!openOptions)}
+                            className="text-[lightgray] cursor-pointer"
+                        >
+                            {`${options.adult} adult • ${options.children} children • ${options.room} room`}
                         </span>
+                        {openOptions && (
+                            <div className="header_options">
+                                <div className="header_optionItem">
+                                    <span className="text-black">Adult</span>
+                                    <div className="header_optionCounter">
+                                        <button
+                                            disabled={options.adult <= 1}
+                                            onClick={() =>
+                                                handleOption('adult', '-')
+                                            }
+                                            className="header_optionBtn"
+                                        >
+                                            -
+                                        </button>
+                                        <span>{options.adult}</span>
+                                        <button
+                                            onClick={() =>
+                                                handleOption('adult', '+')
+                                            }
+                                            className="header_optionBtn"
+                                        >
+                                            +
+                                        </button>
+                                    </div>
+                                </div>
+                                <div className="header_optionItem">
+                                    <span className="text-black">Children</span>
+                                    <div className="header_optionCounter">
+                                        <button
+                                            disabled={options.children <= 0}
+                                            onClick={() =>
+                                                handleOption('children', '-')
+                                            }
+                                            className="header_optionBtn"
+                                        >
+                                            -
+                                        </button>
+                                        <span>{options.children}</span>
+                                        <button
+                                            onClick={() =>
+                                                handleOption('children', '+')
+                                            }
+                                            className="header_optionBtn"
+                                        >
+                                            +
+                                        </button>
+                                    </div>
+                                </div>
+                                <div className="header_optionItem">
+                                    <span className="text-black">Room</span>
+                                    <div className="header_optionCounter">
+                                        <button
+                                            disabled={options.room <= 1}
+                                            onClick={() =>
+                                                handleOption('room', '-')
+                                            }
+                                            className="header_optionBtn "
+                                        >
+                                            -
+                                        </button>
+                                        <span>{options.room}</span>
+                                        <button
+                                            onClick={() =>
+                                                handleOption('room', '+')
+                                            }
+                                            className="header_optionBtn"
+                                        >
+                                            +
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
                     </div>
                     <div className="headerItem">
                         <button className="bg-[blue]">Search</button>

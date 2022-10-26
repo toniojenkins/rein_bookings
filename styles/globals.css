@@ -30,11 +30,33 @@
         display: flex;
         align-items: center;
         justify-content: space-around;
-        padding: 10px 0px;
+        padding: 20px 0px;
         border-radius: 5px;
         position: absolute;
         bottom: -25px;
         width: 100%;
         max-width: 1024px;
+    }
+
+    .header_options {
+        -webkit-box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0);
+        box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.4);
+        @apply absolute top-[50px] bg-white text-[gray] rounded-[5px];
+    }
+
+    .header_optionItem {
+        @apply w-[200px] flex justify-between m-[10px];
+    }
+
+    .header_optionCounter {
+        @apply flex items-center gap-[10px] text-xs text-black;
+    }
+
+    .header_optionBtn {
+        @apply w-[30px] h-[30px] border-[1px] border-solid border-[#0071c2] cursor-pointer bg-white;
+    }
+
+    .header_optionBtn.disabled {
+        @apply cursor-not-allowed;
     }
 }
