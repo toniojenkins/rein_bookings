@@ -1,3 +1,40 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .bg-color {
+        @apply bg-[#003580];
+    }
+
+    .text-color {
+        @apply text-[#003580];
+    }
+
+    .button {
+        @apply rounded-lg ml-[20px] border-none py-[5px] px-[10px] bg-[lightgray] text-color;
+    }
+
+    .headerItem {
+        @apply flex items-center gap-[10px];
+    }
+
+    .headerItem.active {
+        @apply rounded-[20px] border-solid border-[1px] border-white p-[10px];
+    }
+
+    .search {
+        height: 30px;
+        background-color: white;
+        border: 3px solid #febb02;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 10px 0px;
+        border-radius: 5px;
+        position: absolute;
+        bottom: -25px;
+        width: 100%;
+        max-width: 1024px;
+    }
+}
