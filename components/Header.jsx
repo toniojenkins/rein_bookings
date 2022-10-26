@@ -103,7 +103,7 @@ const Header = () => {
                         </span>
                         {openDate && (
                             <DateRangePicker
-                                className="absolute top-[43px] left-[80px] text-black"
+                                className="z-20 absolute top-[43px] left-[80px] text-black"
                                 editableDateInputs={true}
                                 onChange={(item) => setDate([item.selection])}
                                 moveRangeOnFirstSelection={false}

@@ -1,10 +1,11 @@
-import Image from 'next/image';
 import Header from '../components/Header';
+import HomeContainer from '../components/HomeContainer';
 
 export default function Home() {
     return (
-        <div>
+        <div className="">
             <Header />
+            <HomeContainer />
         </div>
     );
 }
