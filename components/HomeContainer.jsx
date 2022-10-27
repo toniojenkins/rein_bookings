@@ -1,9 +1,9 @@
 import React from 'react';
 import CustomerProp from './CustomerProp';
 import Featured from './Featured';
+import Footer from './Footer';
 import MailList from './MailList';
 import PropertyList from './PropertyList';
-
 const HomeContainer = () => {
     return (
         <div className="mt-[50px] flex flex-col items-center gap-[30px]">
@@ -13,6 +13,7 @@ const HomeContainer = () => {
             <h1>Home guests love</h1>
             <CustomerProp />
             <MailList />
+            <Footer />
         </div>
     );
 };

@@ -115,3 +115,53 @@
         @apply text-[14px];
     }
 }
+
+@layer components {
+    .footer {
+        @apply w-[100%] max-w-[1024px] text-xs;
+    }
+
+    .fLists {
+        @apply w-[100%] flex justify-between mb-[50px];
+    }
+
+    .fList {
+        @apply list-none p-[0];
+    }
+
+    .fListItem {
+        @apply mb-[10px] text-[#003590] cursor-pointer;
+    }
+
+    .list-item {
+        @apply flex flex-col gap-[5px] mb-[10px];
+    }
+
+    .list-item > label {
+        @apply text-xs;
+    }
+
+    .list-item > input {
+        @apply h-[30px] border-none p-[5px];
+    }
+
+    .list-item > span {
+        @apply h-[30px] p-[5px] bg-white flex items-center cursor-pointer;
+    }
+
+    .list-option {
+        @apply p-[10px];
+    }
+
+    .list-optionItem {
+        @apply flex justify-between mb-[10px] text-[#555] text-xs;
+    }
+
+    .list-optionInput {
+        @apply w-[50px];
+    }
+
+    .list-result {
+        @apply flex-3;
+    }
+}

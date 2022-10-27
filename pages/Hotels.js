@@ -1,7 +1,10 @@
-import React from 'react';
-import featuredProperties from '../components/featuredProperties';
+import HotelPage from '../components/HotelPage';
 const hotels = () => {
-    return <div>Hotels</div>;
+    return (
+        <div className="">
+            <HotelPage />
+        </div>
+    );
 };
 
 export default hotels;

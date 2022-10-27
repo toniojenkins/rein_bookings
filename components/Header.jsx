@@ -9,6 +9,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { format } from 'date-fns';
+import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import { DateRangePicker } from 'react-date-range';
 import 'react-date-range/dist/styles.css'; // main style file
@@ -29,6 +30,22 @@ const Header = () => {
             key: 'selection',
         },
     ]);
+
+    const router = useRouter();
+    const adults = options.adult;
+    const children = options.children;
+    const room = options.room;
+    const handleSearch = () => {
+        router.push({
+            pathname: '/hotels',
+            query: {
+                destination: input,
+                adults: adults,
+                children: children,
+                room: room,
+            },
+        });
+    };
 
     const handleOption = (gender, op) => {
         setOptions((prev) => {
@@ -101,16 +118,6 @@ const Header = () => {
                                 'MM/dd/yyyy'
                             )} to ${format(date[0].endDate, 'MM/dd/yyyy')}`}
                         </span>
-                        {openDate && (
-                            <DateRangePicker
-                                className="z-20 absolute top-[43px] left-[80px] text-black"
-                                editableDateInputs={true}
-                                onChange={(item) => setDate([item.selection])}
-                                moveRangeOnFirstSelection={false}
-                                minDate={new Date()}
-                                ranges={date}
-                            />
-                        )}
                     </div>
                     <div className="headerItem">
                         <FontAwesomeIcon
@@ -198,7 +205,12 @@ const Header = () => {
                         )}
                     </div>
                     <div className="headerItem">
-                        <button className="bg-[blue]">Search</button>
+                        <button
+                            className="bg-[blue]"
+                            onClick={() => handleSearch()}
+                        >
+                            Search
+                        </button>
                     </div>
                 </div>
             </div>
