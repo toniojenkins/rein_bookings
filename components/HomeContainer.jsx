@@ -1,6 +1,7 @@
 import React from 'react';
 import CustomerProp from './CustomerProp';
 import Featured from './Featured';
+import MailList from './MailList';
 import PropertyList from './PropertyList';
 
 const HomeContainer = () => {
@@ -11,6 +12,7 @@ const HomeContainer = () => {
             <PropertyList />
             <h1>Home guests love</h1>
             <CustomerProp />
+            <MailList />
         </div>
     );
 };
