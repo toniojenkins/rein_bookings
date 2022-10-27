@@ -9,6 +9,7 @@ const Featured = () => {
                     alt=""
                     height={450}
                     width={450}
+                    objectFit="cover"
                 />
                 <div className="featured_title">
                     <h1>Dublin</h1>
