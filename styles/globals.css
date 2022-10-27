@@ -86,4 +86,32 @@
     .pList-img {
         @apply w-[100%] h-[150px];
     }
+
+    .fp-Item {
+        @apply flex-col flex flex-1 gap-[10px];
+    }
+
+    .fp-Img {
+        @apply w-[100%] h-[150px];
+    }
+
+    .fp-Name {
+        @apply font-bold;
+    }
+
+    .fp-City {
+        @apply font-[300];
+    }
+
+    .fp-Price {
+        @apply font-[500];
+    }
+
+    .fp-Rating > button {
+        @apply bg-[#003580] text-white border-none p-[3px] mr-[10px] font-bold;
+    }
+
+    .fp-Rating > span {
+        @apply text-[14px];
+    }
 }
