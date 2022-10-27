@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { DateRangePicker } from 'react-date-range';
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
+import SearchItem from './SearchItem';
+
 const HotelPage = () => {
     const router = useRouter();
     const { destination, adults, children, room } = router.query;
@@ -114,7 +116,16 @@ const HotelPage = () => {
                             Search
                         </button>
                     </div>
-                    <div className="flex-3"></div>
+                    <div className="flex-3">
+                        <SearchItem />
+                        <SearchItem />
+                        <SearchItem />
+                        <SearchItem />
+                        <SearchItem />
+                        <SearchItem />
+                        <SearchItem />
+                        <SearchItem />
+                    </div>
                 </div>
             </div>
         </div>
