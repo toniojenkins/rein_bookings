@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div className="w-[100%] max-w-[1024px] text-xs">
+        <div className="w-[100%] max-w-[1024px] text-xs mt-[20px]">
             <div className="fLists">
                 <ul className="fList">
                     <li className="fListItem">Countries</li>

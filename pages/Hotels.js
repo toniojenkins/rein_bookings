@@ -1,8 +1,8 @@
-import HotelPage from '../components/HotelPage';
+import HotelsPage from '../components/HotelsPage';
 const hotels = () => {
     return (
         <div className="">
-            <HotelPage />
+            <HotelsPage />
         </div>
     );
 };
